@@ -55,7 +55,9 @@ jobs:
       with:
         name: model-artifact
         path: models/
-        
+
+    - name: List model directory
+      run: ls -al models/  # Verify the artifact is present 
     # - name: Run tests
     #   run: pytest tests/
 
