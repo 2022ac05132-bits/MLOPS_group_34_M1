@@ -56,35 +56,35 @@ jobs:
         name: model-artifact
         path: models/
         
+    # - name: Run tests
+    #   run: pytest tests/
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    needs: build  # This job depends on the build job
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Download model artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: model-artifact
+
+    - name: List model directory
+      run: ls -al models/  # Verify the artifact is present
+
     - name: Run tests
       run: pytest tests/
-
-  # test:
-  #   name: Test
-  #   runs-on: ubuntu-latest
-  #   needs: build  # This job depends on the build job
-  #   steps:
-  #   - name: Checkout code
-  #     uses: actions/checkout@v2
-
-  #   - name: Set up Python
-  #     uses: actions/setup-python@v2
-  #     with:
-  #       python-version: '3.8'
-
-  #   - name: Install dependencies
-  #     run: pip install -r requirements.txt
-
-  #   - name: Download model artifact
-  #     uses: actions/download-artifact@v2
-  #     with:
-  #       name: model-artifact
-
-  #   - name: List model directory
-  #     run: ls -al models/  # Verify the artifact is present
-
-  #   - name: Run tests
-  #     run: pytest tests/
 
   deploy:
     name: Deploy
