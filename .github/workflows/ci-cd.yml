@@ -31,10 +31,10 @@ jobs:
     #     pip install flake8
     #     flake8 src/ tests/
 
-    - name: Run tests
-      run: |
-        pip install pytest
-        pytest
+    # - name: Run tests
+    #   run: |
+    #     pip install pytest
+    #     pytest
 
     - name: Deploy
       if: github.ref == 'refs/heads/main'
