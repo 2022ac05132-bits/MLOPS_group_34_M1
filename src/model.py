@@ -1,7 +1,6 @@
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-import pandas as pd
 
 def load_data():
     iris = load_iris()
