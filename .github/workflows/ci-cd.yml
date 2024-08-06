@@ -54,7 +54,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: model-artifact
-        path: models/
+        path: models/linear_regression_model.pkl
 
     - name: List model directory
       run: ls -al models/  # Verify the artifact is present 
