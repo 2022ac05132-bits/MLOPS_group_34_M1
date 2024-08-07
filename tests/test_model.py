@@ -2,6 +2,9 @@ import pickle
 import numpy as np
 
 def test_model_prediction():
+    """
+    This method is triggered at test stage in CI-CD via pytest
+    """
     with open('models/linear_regression_model.pkl', 'rb') as f:
         model = pickle.load(f)
     
